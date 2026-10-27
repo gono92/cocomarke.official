@@ -14,7 +14,8 @@
  *
  * 使い方: node scripts/audit-toc.mjs [--json] [--slug <slug>]
  */
-const KEY = process.env.MICROCMS_API_KEY || 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const argv = process.argv.slice(2);
 const AS_JSON = argv.includes('--json');
 const ONLY = argv.includes('--slug') ? argv[argv.indexOf('--slug') + 1] : null;

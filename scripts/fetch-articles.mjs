@@ -10,7 +10,8 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
-const KEY = process.env.MICROCMS_API_KEY || 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const BASE = 'https://cocomarke.microcms.io/api/v1/blogs';
 const OUT_DIR = 'data/articles';
 const SITE = 'https://www.cocomarke.com';

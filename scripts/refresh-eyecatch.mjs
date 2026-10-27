@@ -9,7 +9,8 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { generateEyecatchBuffer, uploadEyecatch, patchEyecatch } from './eyecatch.mjs';
 
-const KEY = process.env.MICROCMS_API_KEY || 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const DOMAIN = 'cocomarke';
 const OUT = process.env.EYECATCH_OUT || '/tmp/eyecatch-preview';
 

@@ -10,7 +10,8 @@
  *
  * 既定はドライラン。--apply を付けたときだけ microCMS に反映する。
  */
-const KEY = process.env.MICROCMS_API_KEY || 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const NO_FAQ = args.includes('--no-faq');

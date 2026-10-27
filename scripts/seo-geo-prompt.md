@@ -235,10 +235,11 @@ ANTHROPIC_API_KEY=sk-ant-... node scripts/seo-batch-rewrite-v4.mjs
 
 ```javascript
 #!/usr/bin/env node
-const KEY        = 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY        = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const DOMAIN     = 'cocomarke';
 const ID         = '[記事ID]';
-const PEXELS_KEY = 'NmEpHgSEbtq6tK5wEd3OziJm101VLGpyeYqV5ZMxhIrMtScj9WNjcN5Z';
+const PEXELS_KEY = process.env.PEXELS_API_KEY;
 
 async function searchPexels(query) {
   const r = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=5&orientation=landscape`, {

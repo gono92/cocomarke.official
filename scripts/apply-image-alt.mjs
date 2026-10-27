@@ -12,7 +12,8 @@
  */
 import { readFileSync } from 'node:fs';
 
-const KEY = process.env.MICROCMS_API_KEY || 'qkw2TEC77QumO0EIJnS1wp0FtMlXQQuelmY5';
+const KEY = process.env.MICROCMS_API_KEY;
+if (!KEY) throw new Error('MICROCMS_API_KEY is required');
 const APPLY = process.argv.includes('--apply');
 const DIR = '/private/tmp/claude-501/-Users-andoaoi-out-2/f79cb711-d3cf-4987-a1eb-10243da3fbe3/scratchpad/alt';
 
